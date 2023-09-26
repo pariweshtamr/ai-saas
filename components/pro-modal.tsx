@@ -24,6 +24,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import axios from "axios"
 import { useState } from "react"
+import toast from "react-hot-toast"
 
 const tools = [
   {
@@ -66,9 +67,9 @@ const ProModal = () => {
     try {
       setLoading(true)
       const { data } = await axios.get("/api/stripe")
-
       window.location.href = data.url
     } catch (error) {
+      toast.error("Something went wrong!")
       console.log(error, "STRIPE CLIENT ERROR")
     } finally {
       setLoading(false)
@@ -109,6 +110,7 @@ const ProModal = () => {
             variant={"upgrade"}
             className="w-full"
             onClick={onSubscribe}
+            disabled={loading}
           >
             Upgrade
             <Zap className="w-4 h-4 ml-2 fill-white" />
