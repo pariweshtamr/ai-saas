@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@clerk/nextjs"
 import Link from "next/link"
-import Image from "next/image"
 
 const font = Montserrat({
   weight: "600",
@@ -15,11 +14,8 @@ const LandingNavbar = () => {
   return (
     <nav className="p-4 bg-transparent flex items-center justify-between">
       <Link href="/" className="flex items-center">
-        <div className="relative h-8 w-8 mr-4">
-          <Image fill alt="logo" src="/logo.png" />
-        </div>
         <h1 className={cn("text-2xl font-bold text-white", font.className)}>
-          Hope
+          HopeAI
         </h1>
       </Link>
 
